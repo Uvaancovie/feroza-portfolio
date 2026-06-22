@@ -7,13 +7,13 @@ export default function Contact() {
     name: "",
     email: "",
     organization: "",
-    supportNeed: "HR strategy, workplace wellbeing, coaching, or conflict support",
+    supportNeed: "HR Outsourcing & Admin",
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -32,7 +32,7 @@ export default function Contact() {
         name: "",
         email: "",
         organization: "",
-        supportNeed: "HR strategy, workplace wellbeing, coaching, or conflict support",
+        supportNeed: "HR Outsourcing & Admin",
         message: "",
       });
       setTimeout(() => setSubmitted(false), 5000);
@@ -100,15 +100,21 @@ export default function Contact() {
 
             <div>
               <label className="mb-2 block font-semibold text-foreground">What kind of support do you need? *</label>
-              <input
-                type="text"
+              <select
                 name="supportNeed"
                 value={formData.supportNeed}
                 onChange={handleChange}
                 required
-                className="w-full rounded-2xl border border-primary/15 bg-white px-4 py-3 outline-none transition placeholder:text-foreground/35 focus:border-primary focus:ring-4 focus:ring-primary/10"
-                placeholder="Example: HR policy review, conflict mediation, leadership coaching"
-              />
+                className="w-full rounded-2xl border border-primary/15 bg-white px-4 py-3 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10"
+              >
+                <option value="HR Outsourcing & Admin">HR Outsourcing & Admin</option>
+                <option value="Industrial & Labour Relations">Industrial & Labour Relations</option>
+                <option value="Skills Development & Equity">Skills Development & Equity</option>
+                <option value="B-BBEE Consulting">B-BBEE Consulting</option>
+                <option value="Talent Acquisition">Talent Acquisition</option>
+                <option value="Wellness & Change Management">Wellness & Change Management</option>
+                <option value="Other / Custom Consultation">Other / Custom Consultation</option>
+              </select>
             </div>
 
             <div>
